@@ -49,7 +49,7 @@ function App(): JSX.Element {
                 path="/login"
                 element={<AuthForm setUser={setUser} />}
               ></Route>
-              <Route path="/createpost" element={<CreatePost />} />
+              <Route path="/create-post" element={<CreatePost />} />
             </Routes>
           </Router>
         </Context>
