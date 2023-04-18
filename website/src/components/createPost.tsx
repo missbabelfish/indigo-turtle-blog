@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
+import { ThemeProvider, createTheme, useTheme } from '@mui/material';
+
+
 
 interface FormData {
+  postAuthor: string,
   postTitle: string;
   postContent: string;
   tags: string[];
 }
 
 const initialFormData: FormData = {
+  postAuthor: '',
   postTitle: '',
   postContent: '',
   tags: [],
