@@ -47,9 +47,12 @@ function CreatePost(): JSX.Element {
   const ctx = useContext(myContext)
   // redirect to root if not logged in
   if (ctx.username === undefined) navigate ("/")
-  
-  const [formData, setFormData] = useState<FormData>(initialFormData);
 
+  // use materialUI theme
+  const theme = useTheme();
+  
+  // set form state
+  const [formData, setFormData] = useState<FormData>(initialFormData);
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>): void {
     // Prevent the browser from reloading the page
@@ -64,11 +67,15 @@ function CreatePost(): JSX.Element {
   }
 
   function handleCancel(): void {
-    // redirect to posts page
+    navigate ("/postspage")
   }
 
   return (
-    <form method="post" onSubmit={handleSubmit}>
+    <form 
+      method="post" 
+      onSubmit={handleSubmit}
+      // style={{theme}}
+    >
       <label>
         Title:
         <input
