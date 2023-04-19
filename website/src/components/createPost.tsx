@@ -3,8 +3,6 @@ import { ThemeProvider, createTheme, useTheme } from '@mui/material';
 import { NavigateFunction, useNavigate } from 'react-router-dom';
 import { myContext } from 'components/Context';
 
-const navigate = useNavigate();
-
 interface FormData {
   postAuthor: string,
   postTitle: string;
@@ -44,6 +42,7 @@ const handleSelectChange = (
 };
 
 function CreatePost(): JSX.Element {
+  const navigate = useNavigate();
   const ctx = useContext(myContext)
   // redirect to root if not logged in
   if (ctx.username === undefined) navigate ("/")
