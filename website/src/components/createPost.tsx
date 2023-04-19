@@ -79,7 +79,6 @@ function CreatePost(): JSX.Element {
         Title:
         <input
           name="postTitle"
-          defaultValue="Title"
           value={formData.postTitle}
           onChange={handleInputChange.bind(null, setFormData, formData)}
         />
