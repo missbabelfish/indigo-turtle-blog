@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { ThemeProvider, createTheme, useTheme } from '@mui/material';
+import { NavigateFunction, useNavigate } from 'react-router-dom';
+import { myContext } from 'components/Context';
 
-
+const navigate = useNavigate();
 
 interface FormData {
   postAuthor: string,
@@ -42,7 +44,13 @@ const handleSelectChange = (
 };
 
 function CreatePost(): JSX.Element {
+  const ctx = useContext(myContext)
+  // redirect to root if not logged in
+  if (ctx.username === undefined) navigate ("/")
+  
   const [formData, setFormData] = useState<FormData>(initialFormData);
+
+
   function handleSubmit(event: React.FormEvent<HTMLFormElement>): void {
     // Prevent the browser from reloading the page
     event.preventDefault();
